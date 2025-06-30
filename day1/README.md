@@ -215,3 +215,15 @@ tcp6       0      0 :::9092                 :::*                    LISTEN      
 
 
 ```
+
+## Any Producer Can Send Data to a Broker
+
+- **Brokers** have *topics* where message streams are stored.
+- A *message/data stream* is a sequence of messages or data.
+- A *topic* is similar to a database table (but without constraints).
+- You cannot query topics directly; only consumers/subscribers can read data from a topic.
+
+## Topic and Partition Concepts
+
+![Topic and Partition Concepts](tp1.png)
+
