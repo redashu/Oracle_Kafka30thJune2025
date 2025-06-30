@@ -260,3 +260,57 @@ null
 ^C[ec2-user@ip-172-31-40-73 ~]$ ^C
 
 ```
+
+## Some zookeeper administrative things to check for kafka better health
+
+###  4-Letter words (4LW)
+
+## checking basic health of zookeeper 
+
+### enable / whitelist 4lw commands 
+
+```
+vim /home/ec2-user/kafka_2.13-3.9.1/config/zookeeper.properties
+# last line 
+4lw.commands.whitelist=*
+
+
+===>
+ zookeeper-server-stop.sh
+
+ ===>
+  zookeeper-server-start.sh  -daemon  /home/ec2-user/kafka_2.13-3.9.1/config/zookeeper.properties
+```
+### lets try again to check 
+
+```
+
+echo "ruok"  | nc localhost 2181 
+
+imok
+
+===>
+echo "stat"  | nc localhost 21812181
+Zookeeper version: 3.8.4-9316c2a7a97e1666d8f4593f34dd6fc36ecc436c, built on 2024-02-12 22:16 UTC
+Clients:
+ /127.0.0.1:32924[1](queued=0,recved=31,sent=31)
+ /127.0.0.1:52780[0](queued=0,recved=1,sent=0)
+
+Latency min/avg/max: 0/0.4333/4
+Received: 36
+Sent: 37
+Connections: 2
+Outstanding: 0
+Zxid: 0x23
+Mode: standalone
+Node count: 28
+
+===>
+ 93  echo "ruok"  | nc localhost 2181 
+   94  echo "stat"  | nc localhost 2181
+   95  echo "conf"  | nc localhost 2181
+   96  echo "srvr"  | nc localhost 2181
+ echo "mntr"  | nc localhost 2181 
+
+ ```
+ 
