@@ -313,4 +313,23 @@ Node count: 28
  echo "mntr"  | nc localhost 2181 
 
  ```
- 
+
+
+ ### concept of kafka bootstrap server 
+
+ <img src="boot1.png">
+
+
+ ### kafka topic commands 
+
+ ```
+ 106  kafka-topics.sh  --bootstrap-server  localhost:9092  --list
+  107  kafka-topics.sh  --bootstrap-server  localhost:9092  --create --topic  ashu-web-events 
+  108  kafka-topics.sh  --bootstrap-server  localhost:9092  --list
+  109  kafka-topics.sh  --bootstrap-server  localhost:9092  --describe ashu-web-events
+  110  kafka-topics.sh  --bootstrap-server  localhost:9092  --create --topic  ashu-secure  --partitions 3 --replication-factor 2 
+  111  kafka-topics.sh  --bootstrap-server  localhost:9092  --create --topic  ashu-secure  --partitions 3 
+  112  kafka-topics.sh  --bootstrap-server  localhost:9092  --list
+  113  kafka-topics.sh  --bootstrap-server  localhost:9092  --describe ashu-secure
+
+  ```
