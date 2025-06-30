@@ -165,3 +165,53 @@ kafka-client-metrics.sh             kafka-features.sh                   kafka-ru
 kafka-cluster.sh                    kafka-get-offsets.s
 
 ```
+
+### starting zookeeper server 
+
+```
+zookeeper-server-start.sh  -daemon  /home/ec2-user/kafka_2.13-3.9.1/config/zookeeper.properties 
+
+[ec2-user@ip-172-31-40-73 ~]$ 
+[ec2-user@ip-172-31-40-73 ~]$ netstat -nlpt
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -                   
+tcp6       0      0 :::2181                 :::*                    LISTEN      31484/java          
+tcp6       0      0 :::22                   :::*                    LISTEN      -                   
+tcp6       0      0 :::37265                :::*                    LISTEN      31484/java          
+[ec2-user@ip-172-31-40-73 ~]$ 
+
+
+```
+
+### start apache kafka server 
+
+```
+[ec2-user@ip-172-31-40-73 ~]$ kafka-server-start.sh  -daemon /home/ec2-user/kafka_2.13-3.9.1/config/server.properties 
+[ec2-user@ip-172-31-40-73 ~]$ 
+[ec2-user@ip-172-31-40-73 ~]$ 
+[ec2-user@ip-172-31-40-73 ~]$ 
+[ec2-user@ip-172-31-40-73 ~]$ jps
+31970 QuorumPeerMain
+32777 Jps
+32701 Kafka
+
+
+[ec2-user@ip-172-31-40-73 ~]$ netstat -nlpt
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -                   
+tcp6       0      0 :::34985                :::*                    LISTEN      32701/java          
+tcp6       0      0 :::2181                 :::*                    LISTEN      31970/java          
+tcp6       0      0 :::32963                :::*                    LISTEN      31970/java          
+tcp6       0      0 :::22                   :::*                    LISTEN      -                   
+tcp6       0      0 :::9092                 :::*                    LISTEN      32701/java          
+[ec2-user@ip-172-31-40-73 ~]$ 
+
+
+
+```
