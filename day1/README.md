@@ -28,6 +28,11 @@
 
 # setup apache kafka on any linux based platform
 
+### Prerequisite 
+
+<img src="pre.png">
+
+
 ### basic details to check 
 
 ```
