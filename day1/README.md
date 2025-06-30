@@ -92,5 +92,76 @@ jps
 
 ```
 
+## kafka version understanding 
+
+<img src="kv.png">
+
+### few basic points to understand in kafka about zookeeper
+
+<img src="zoo.png">
+
+### zookeeper with kafka  
+
+<img src="zoo1.png">
 
 
+## setup 
+
+### Download kafka 3.9 with scala 2.3 support binary 
+
+```
+wget  https://dlcdn.apache.org/kafka/3.9.1/kafka_2.13-3.9.1.tgz
+
+[ec2-user@ip-172-31-40-73 ~]$ ls
+kafka_2.13-3.9.1.tgz
+
+[ec2-user@ip-172-31-40-73 ~]$ tar  xvf  kafka_2.13-3.9.1.tgz 
+kafka_2.13-3.9.1/
+kafka_2.13-3.9.1/LICENSE
+kafka_2.13-3.9.1/NOTICE
+
+===>
+[ec2-user@ip-172-31-40-73 ~]$ ls  kafka_2.13-3.9.1
+LICENSE  NOTICE  bin  config  libs  licenses  site-docs
+[ec2-user@ip-172-31-40-73 ~]$ 
+[ec2-user@ip-172-31-40-73 ~]$ ls  kafka_2.13-3.9.1/config/
+connect-console-sink.properties    connect-file-source.properties   consumer.properties  server.properties
+connect-console-source.properties  connect-log4j.properties         kraft                tools-log4j.properties
+connect-distributed.properties     connect-mirror-maker.properties  log4j.properties     trogdor.conf
+connect-file-sink.properties       connect-standalone.properties    producer.properties  zookeeper.properties
+[ec2-user@ip-172-31-40-73 ~]$ 
+[ec2-user@ip-172-31-40-73 ~]$ ls  kafka_2.13-3.9.1/bin/
+connect-distributed.sh        kafka-consumer-groups.sh     kafka-metadata-quorum.sh            kafka-topics.sh
+connect-mirror-maker.sh       kafka-consumer-perf-test.sh  kafka-metadata-shell.sh             kafka-transactions.sh
+connect-plugin-path.sh        kafka-delegation-tokens.sh   kafka-mirror-maker.sh               kafka-verifiable-consumer.sh
+connect-standalone.sh         kafka-delete-records.sh      kafka-producer-perf-test.sh         kafka-verifiable-producer.sh
+kafka-acls.sh                 kafka-dump-log.sh            kafka-reassign-partitions.sh        trogdor.sh
+kafka-broker-api-versions.sh  kafka-e2e-latency.sh         kafka-replica-verification.sh       windows
+
+```
+
+### setting kafka_home variable 
+
+```
+[ec2-user@ip-172-31-40-73 ~]$ tail -7  ~/.bashrc 
+fi
+
+unset rc
+JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto.x86_64
+KAFKA_HOME=/home/ec2-user/kafka_2.13-3.9.1
+PATH=$PATH:$JAVA_HOME/bin:$KAFKA_HOME/bin
+export PATH
+
+
+[ec2-user@ip-172-31-40-73 ~]$ 
+[ec2-user@ip-172-31-40-73 ~]$ source ~/.bashrc 
+[ec2-user@ip-172-31-40-73 ~]$ 
+
+
+[ec2-user@ip-172-31-40-73 ~]$ kafka-
+kafka-acls.sh                       kafka-dump-log.sh                   kafka-reassign-partitions.sh
+kafka-broker-api-versions.sh        kafka-e2e-latency.sh                kafka-replica-verification.sh
+kafka-client-metrics.sh             kafka-features.sh                   kafka-run-class.sh
+kafka-cluster.sh                    kafka-get-offsets.s
+
+```
