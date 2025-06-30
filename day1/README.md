@@ -227,3 +227,36 @@ tcp6       0      0 :::9092                 :::*                    LISTEN      
 
 ![Topic and Partition Concepts](tp1.png)
 
+### Kafka clients are producer and consumers
+
+<img src="kclien.png">
+
+
+### verify can we connect to zookeeper or not 
+
+```
+[ec2-user@ip-172-31-40-73 ~]$ zookeeper-shell.sh  localhost:2181 
+Connecting to localhost:2181
+Welcome to ZooKeeper!
+JLine support is disabled
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:None path:null
+ls /
+[admin, brokers, cluster, config, consumers, controller, controller_epoch, feature, isr_change_notification, latest_producer_id_block, log_dir_event_notification, zookeeper]
+ls /config
+[brokers, changes, clients, ips, topics, users]
+ls /zookeeper
+[config, quota]
+ls /zookeeper/config
+[]
+get  /zookeeper/config
+
+ls /config/brokers
+[]
+get /config/brokers
+null
+^C[ec2-user@ip-172-31-40-73 ~]$ ^C
+
+```
