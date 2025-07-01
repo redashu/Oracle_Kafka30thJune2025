@@ -73,4 +73,32 @@ kafka-server-stop.sh
 # replace of rewrite this line 
  log.dirs=/home/ec2-user/ashu-kafka
 
+ ===>
+ kafka-server-start.sh  -daemon /home/ec2-user/kafka_2.13-3.9.1/config/server.properties 
+
+```
+
+### difference 
+
+<img src="kafka11.png">
+
+### few more commands 
+
+
+```
+[ec2-user@ip-172-31-40-73 ~]$  kafka-topics.sh  --bootstrap-server  localhost:9092  --create --topic ashu-topic2
+Created topic ashu-topic2.
+[ec2-user@ip-172-31-40-73 ~]$ 
+[ec2-user@ip-172-31-40-73 ~]$ kafka-topics.sh  --bootstrap-server  localhost:9092  --list 
+ashu-topic1
+ashu-topic2
+[ec2-user@ip-172-31-40-73 ~]$ ls /tmp/kafka-logs/
+ashu-topic1-0  cleaner-offset-checkpoint  log-start-offset-checkpoint  meta.properties  recovery-point-offset-checkpoint  replication-offset-checkpoint
+[ec2-user@ip-172-31-40-73 ~]$ 
+[ec2-user@ip-172-31-40-73 ~]$ 
+[ec2-user@ip-172-31-40-73 ~]$ ls /home/ec2-user/ashu-kafka/
+ashu-topic1-0  cleaner-offset-checkpoint    meta.properties                   replication-offset-checkpoint
+ashu-topic2-0  log-start-offset-checkpoint  recovery-point-offset-checkpoint
+[ec2-user@ip-172-31-40-73 ~]$ 
+
 ```
