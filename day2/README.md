@@ -139,3 +139,10 @@ __consumer_offsets-2   __consumer_offsets-33  __consumer_offsets-47  bala-new-1-
 [ec2-user@ip-172-31-40-73 ashu-topic1-0]$ kafka-dump-log.sh  --print-data-log  --files  /home/ec2-user/ashu-kafka/ashu-topic1-0/00000000000000000000.log 
 
 ```
+
+### Kafka consumer 
+
+```
+ kafka-console-consumer.sh  --bootstrap-server 3.1.143.30:9092  --topic  ashu-topic1 --from-beginning
+
+```
