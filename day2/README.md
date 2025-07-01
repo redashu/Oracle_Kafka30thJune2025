@@ -166,3 +166,29 @@ ashu-env
 
 ```
 
+## installing package in python 
+
+<img src="ins.png">
+
+### Installing and validation 
+
+```
+pip install kafka-python  
+Collecting kafka-python
+  Downloading kafka_python-2.2.14-py2.py3-none-any.whl (309 kB)
+     |████████████████████████████████| 309 kB 15.8 MB/s            
+Installing collected packages: kafka-python
+Successfully installed kafka-python-2.2.14
+
+===>
+ashu-env) [ec2-user@ip-172-31-40-73 ashu-kafka-clients]$ python3
+Python 3.9.23 (main, Jun 11 2025, 00:00:00) 
+[GCC 11.5.0 20240719 (Red Hat 11.5.0-5)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from kafka import KafkaConsumer
+>>> exit()
+
+===
+
+```
+
