@@ -46,3 +46,18 @@ tcp6       0      0 :::2181                 :::*                    LISTEN      
 tcp6       0      0 :::9092                 :::*                    LISTEN      3253/java           
 
 ```
+
+### connecting to remote zookeeper and kafka 
+
+```
+echo dump | nc 54.179.159.70  2181 
+[ec2-user@ip-172-31-40-73 ~]$ kafka-topics.sh  --bootstrap-server  54.179.159.70:9092  --list 
+
+[ec2-user@ip-172-31-40-73 ~]$ kafka-topics.sh  --bootstrap-server  54.179.159.70:9092  --create --topic ashu-topic1  
+Created topic ashu-topic1.
+[ec2-user@ip-172-31-40-73 ~]$ kafka-topics.sh  --bootstrap-server  54.179.159.70:9092  --list 
+ashu-topic1
+[ec2-user@ip-172-31-40-73 ~]$ 
+
+```
+
