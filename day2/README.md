@@ -192,3 +192,17 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 ```
 
+## Running producer code 
+
+```
+python kafka-producer.py
+
+====> check message using kafka-nativ consumer 
+
+kafka-console-consumer.sh  --bootstrap-server 3.1.143.30:9092  --topic  ashu-python-topic1 --from-beginning 
+Hello, Kafka! This is a test message. from ashutoshh
+^CProcessed a total of 1 messages
+(ashu-env) [ec2-user@ip-172-31-40-73 ~]$ 
+
+
+```
