@@ -27,4 +27,8 @@ admin_client.create_topics(new_topics=[new_topic], validate_only=False)
 # fetch the list of topics
 topics = consumer.topics()
 print("Available topics:", topics)
-                        
+
+# close consumer
+consumer.close()             
+# close admin client
+admin_client.close()
