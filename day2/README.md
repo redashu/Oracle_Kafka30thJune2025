@@ -151,4 +151,18 @@ __consumer_offsets-2   __consumer_offsets-33  __consumer_offsets-47  bala-new-1-
 
 <img src="km1.png">
 
+## Creating python vevn
+
+```
+[ec2-user@ip-172-31-40-73 ~]$ mkdir  ashu-kafka-clients 
+
+[ec2-user@ip-172-31-40-73 ~]$ cd ashu-kafka-clients/
+
+[ec2-user@ip-172-31-40-73 ashu-kafka-clients]$ python3 -m venv  ashu-env 
+[ec2-user@ip-172-31-40-73 ashu-kafka-clients]$ ls
+ashu-env
+[ec2-user@ip-172-31-40-73 ashu-kafka-clients]$ source  ashu-env/bin/activate
+(ashu-env) [ec2-user@ip-172-31-40-73 ashu-kafka-clients]$ 
+
+```
 
