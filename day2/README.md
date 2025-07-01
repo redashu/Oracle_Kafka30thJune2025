@@ -279,3 +279,25 @@ ashu-kafka  ashu-kafka-clients  kafka_2.13-3.9.1  kafka_2.13-3.9.1.tgz  kraft-as
 bootstrap.checkpoint  meta.properties
 
 ```
+
+### starting kafka 
+
+```
+(ashu-env) [ec2-user@ip-172-31-40-73 config]$ kafka-server-start.sh   -daemon /home/ec2-user/kafka_2.13-3.9.1/config/kraft/server.properties 
+(ashu-env) [ec2-user@ip-172-31-40-73 config]$ 
+(ashu-env) [ec2-user@ip-172-31-40-73 config]$ jps
+28197 Kafka
+28222 Jps
+(ashu-env) [ec2-user@ip-172-31-40-73 config]$ netstat -nlpt
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -                   
+tcp6       0      0 :::9092                 :::*                    LISTEN      28197/java          
+tcp6       0      0 :::9093                 :::*                    LISTEN      28197/java          
+tcp6       0      0 :::41919                :::*                    LISTEN      28197/java          
+tcp6       0      0 :::22                   :::*                    LISTEN      -                   
+(ashu-env) [ec2-user@ip-172-31-40-73 config]$ 
+
+```
