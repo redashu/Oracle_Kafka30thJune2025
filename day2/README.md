@@ -146,3 +146,9 @@ __consumer_offsets-2   __consumer_offsets-33  __consumer_offsets-47  bala-new-1-
  kafka-console-consumer.sh  --bootstrap-server 3.1.143.30:9092  --topic  ashu-topic1 --from-beginning
 
 ```
+
+## kafka message format 
+
+<img src="km1.png">
+
+
