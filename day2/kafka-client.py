@@ -23,5 +23,8 @@ new_topic = NewTopic(name='ashu-python-topic1', num_partitions=1,replication_fac
 # Create the topic using the admin client
 admin_client.create_topics(new_topics=[new_topic], validate_only=False)
 
-
+# lets rfetch the topics 
+# fetch the list of topics
+topics = consumer.topics()
+print("Available topics:", topics)
                         
