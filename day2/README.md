@@ -206,3 +206,76 @@ Hello, Kafka! This is a test message. from ashutoshh
 
 
 ```
+
+## Kafka single node setup without zookeeper (using Kraft)
+
+### incase of existing setup --
+
+```
+(ashu-env) [ec2-user@ip-172-31-40-73 ~]$ jps
+3217 QuorumPeerMain
+10732 Kafka
+26094 Jps
+(ashu-env) [ec2-user@ip-172-31-40-73 ~]$ zookeeper-server-stop.sh 
+
+(ashu-env) [ec2-user@ip-172-31-40-73 ~]$ kafka-server-stop.sh 
+
+(ashu-env) [ec2-user@ip-172-31-40-73 ~]$ jps
+26209 Jps
+(ashu-env) [ec2-user@ip-172-31-40-73 ~]$ netstat -nlpt
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -                   
+tcp6       0      0 :::22                   :::*                    LISTEN      -                   
+(ashu-env) [ec2-user@ip-172-31-40-73 ~]$ 
+
+```
+
+### zookeeper vs Kraft 
+
+<img src="raft1.png">
+
+## steps to setup kafka with Kraft 
+
+```
+===>
+ashu-env) [ec2-user@ip-172-31-40-73 config]$ ls
+connect-console-sink.properties    connect-file-source.properties   consumer.properties  server.properties
+connect-console-source.properties  connect-log4j.properties         kraft                tools-log4j.properties
+connect-distributed.properties     connect-mirror-maker.properties  log4j.properties     trogdor.conf
+connect-file-sink.properties       connect-standalone.properties    producer.properties  zookeeper.properties
+
+
+(ashu-env) [ec2-user@ip-172-31-40-73 config]$ ls kraft/
+broker.properties  controller.properties  reconfig-server.properties  server.properties
+
+(ashu-env) [ec2-user@ip-172-31-40-73 config]$ vim kraft/server.properties 
+
+(ashu-env) [ec2-user@ip-172-31-40-73 config]$ grep -in log  kraft/server.properties 
+75:############################# Log Basics #############################
+77:# A comma separated list of directories under which to store log files
+78:log.dirs=/tmp/kraft-combined-logs
+80:# The default number of log partitions per topic. More partitions allow greater
+85:# The number of threads per data directory to be used for log recovery at startup and flushing at shutdown.
+93:transaction.state.log.replication.factor=1
+94:transaction.state.log.min.isr=1
+
+===>
+after change log.dir 
+===>
+ashu-env) [ec2-user@ip-172-31-40-73 config]$ kafka-storage.sh  random-uuid 
+0Ruh5i43StSqM7IhyC_VQg
+
+===>
+ kafka-storage.sh  format -t 0Ruh5i43StSqM7IhyC_VQg -c /home/ec2-user/kafka_2.13-3.9.1/config/kraft/server.properties 
+
+Formatting metadata directory /home/ec2-user/kraft-ashu-kafka with metadata.version 3.9-IV0.
+
+(ashu-env) [ec2-user@ip-172-31-40-73 config]$ ls ~/
+ashu-kafka  ashu-kafka-clients  kafka_2.13-3.9.1  kafka_2.13-3.9.1.tgz  kraft-ashu-kafka
+(ashu-env) [ec2-user@ip-172-31-40-73 config]$ ls ~/kraft-ashu-kafka/
+bootstrap.checkpoint  meta.properties
+
+```
