@@ -61,3 +61,16 @@ ashu-topic1
 
 ```
 
+## for storing data persistently even after reboot/stop in kafka
+
+###  steps 
+
+```
+kafka-server-stop.sh
+
+===>
+ vim server.properties  +62
+# replace of rewrite this line 
+ log.dirs=/home/ec2-user/ashu-kafka
+
+```
