@@ -93,4 +93,10 @@ podman-compose -f kafka-ui.yaml up -d
 ## once its done  verify running kafka ui container 
 
 podman-compose -f kafka-ui.yaml ps 
+
+## allow in OCI firewall 
+### allow /disable OCI vm firewalld 
+
+sudo systemctl stop firewalld
+sudo systemctl disable firewalld
 ```
