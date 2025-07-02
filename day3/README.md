@@ -127,3 +127,22 @@ python3.8 -m pip install --user podman-compose
 # Or create an alias:
 alias podman-compose='~/.local/bin/podman-compose'
 ```
+
+## Some troubleshooting 
+
+```
+ 332  rm -rf /tmp/kraft-combined-logs/
+  333  history 
+  334  kafka-server-stop.sh 
+  335  history 
+  336  kafka-storage.sh  format -t MBN-9lzMQoSaaZLt3waDww  -c  /home/oracle/kafka_2.13-3.9.1/config/kraft/server.properties 
+  337  history 
+  338  kafka-server-start.sh -daemon  /home/oracle/kafka_2.13-3.9.1/config/kraft/server.properties
+  339  jps
+
+```
+
+### kafka kraft changes
+
+<img src="demo1.png">
+
