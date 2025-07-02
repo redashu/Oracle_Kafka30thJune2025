@@ -90,4 +90,7 @@ echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
 podman-compose -f kafka-ui.yaml up -d
 
+## once its done  verify running kafka ui container 
+
+podman-compose -f kafka-ui.yaml ps 
 ```
