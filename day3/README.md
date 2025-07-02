@@ -100,3 +100,10 @@ podman-compose -f kafka-ui.yaml ps
 sudo systemctl stop firewalld
 sudo systemctl disable firewalld
 ```
+
+### podman run without compose 
+
+```
+podman run -itd -p 8080:8080 -e KAFKA_CLUSTERS_0_NAME=ashu-kafka-cluster -e KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=172.31.35.233:9092  docker.io/provectuslabs/kafka-ui:latest
+
+```
