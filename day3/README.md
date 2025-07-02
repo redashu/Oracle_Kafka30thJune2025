@@ -88,6 +88,6 @@ You should consider upgrading via the '/home/oracle/ashu/ashu-client/bin/python3
 pip3 install --user podman-compose
 echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
-podman-compose -f kafka-ui.yaml up -
+podman-compose -f kafka-ui.yaml up -d
 
 ```
