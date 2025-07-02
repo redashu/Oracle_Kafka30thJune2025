@@ -6,3 +6,7 @@
 
 [click_here](https://pypi.org/project/kafka-python/)
 
+### kafka UI 
+
+[click_here](https://github.com/provectus/kafka-ui.git)
+

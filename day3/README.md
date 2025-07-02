@@ -78,3 +78,8 @@ You should consider upgrading via the '/home/oracle/ashu/ashu-client/bin/python3
 
 ```
 
+### kafka ui options 
+
+<img src="ui1.png">
+
+
