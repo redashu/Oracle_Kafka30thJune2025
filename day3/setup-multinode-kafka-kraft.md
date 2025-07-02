@@ -48,6 +48,74 @@ broker.properties  controller.properties  reconfig-server.properties  server.pro
 ===> changes in server.properties file 
 
 
+# The role of this server. Setting this puts us in KRaft mode
+process.roles=broker,controller  # by default 
+# The node id associated with this instance's roles
+node.id=3  # Node1 == 1 , node2= 2 , node3 = 3
+# The connect string for the controller quorum (same for all node)
+controller.quorum.voters=1@172.31.40.73:9093,2@172.31.32.6:9093,3@172.31.47.127:9093
+# format - node_id@node_ip:9093
+
+#     listeners = PLAINTEXT://your.host.name:9092
+listeners=PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
+
+# If not set, it uses the value for "listeners".
+advertised.listeners=PLAINTEXT://172.31.47.127:9092,CONTROLLER://172.31.47.127:9093
+
+# current_nodeIP/hostname/publicIP 
+
+# A comma separated list of directories under which to store log files
+log.dirs=/home/ec2-user/.kraft-kafka
+```
+
+### generate UUID / cluster-id (any one node)
+### use generate UUID / cluster-id in all the nodes for formating purpose 
+```
+kafka-storage.sh random-uuid
+```
+
+### use above id to format storage  (all nodes)
+
+```
+kafka-storage.sh   format -t PohmB0c6TMe5XPXKWbOIuw  -c /home/ec2-user/kafka_2.13-3.9.1/config/kraft/server.properties 
+
+===> this will create log.dirs directory with required structure 
+```
+
+### star kafka server process  use systemd (in prod env)
+
+### creating systemd file 
+
+```
+sudo vi /etc/systemd/system/kafka.service
+[Unit]
+Description=Apache Kafka (KRaft)
+After=network.target
+
+[Service]
+User=ec2-user
+Group=ec2-user
+ExecStart=/home/ec2-user/kafka_2.13-3.9.1/bin/kafka-server-start.sh /home/ec2-user/kafka_2.13-3.9.1/config/kraft/server.properties
+Restart=on-failure
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+
+```
+
+### how to start kafka 
+
+```
+ sudo systemctl daemon-reload 
+ sudo systemctl start kafka
+ sudo systemctl status kafka
+ sudo systemctl enable kafka # auto-start after reboot / stop 
+
+ sudo systemctl restart kafka # if you made any changes in configuration of kafka
+ ```
+
+
 
 
 
