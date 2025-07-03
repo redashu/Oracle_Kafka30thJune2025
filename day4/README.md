@@ -29,6 +29,14 @@ index.html
 [root@kafka-instance html]# echo "hello from user URL" >user/index.html
 [root@kafka-instance html]# 
 
+ 12  systemctl start httpd
+   13  systemctl status httpd
+   14  curl ifconfig.me 
+   15  curl localhost
+   16  curl localhost/user
+   17  cd /var/log/httpd/
+   18  ls
+
 
 curl localhost/user
    17  cd /var/log/httpd/
