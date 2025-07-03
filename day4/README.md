@@ -84,3 +84,18 @@ pip3 install flask
 python3 deploy.py 
 # it will deploy consumer + webapp (ip:5000)
 ```
+
+## From kafka client machine checking connection to kafka-cluster 
+
+```
+ kafka-topics.sh  --bootstrap-server  172.31.40.73:9092 --list
+__consumer_offsets
+ashu-python-topic1
+ashu-topic1
+ashu-ui-topic
+bakshu-python-topic6
+mj-python-topic1
+mj-python-topic111
+
+
+```
