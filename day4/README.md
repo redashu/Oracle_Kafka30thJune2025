@@ -43,3 +43,18 @@ curl localhost/user
    18  ls
    19  cat access_log 
 ```
+
+### Creating topic to send logs 
+
+```
+opc@kafka-instance ~]$ kafka-topics.sh  --bootstrap-server localhost:9092 --list
+demo_topic
+demotopic
+[opc@kafka-instance ~]$ kafka-topics.sh  --bootstrap-server localhost:9092 --create --topic  web-logs
+Created topic web-logs.
+[opc@kafka-instance ~]$ kafka-topics.sh  --bootstrap-server localhost:9092 --list
+demo_topic
+demotopic
+web-logs
+
+```
