@@ -6,9 +6,9 @@ from kafka import KafkaConsumer
 
 app = FastAPI()
 
-TOPIC = "ashu-aws-oci-events"
+TOPIC = "ashu-aws-oci-events" # change to your topic name
 KAFKA_BROKER = '172.31.40.73:9092'  # Or use private IP if needed
-GROUP_ID = "ec2-consumer-api"
+GROUP_ID = "ec2-consumer-api" # change some other name 
 
 # Shared queue between Kafka thread and WebSocket
 message_queue = asyncio.Queue()
