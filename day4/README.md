@@ -76,3 +76,11 @@ kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic web-logs  --
 
 <img src="project1.png">
 
+
+### creating python consumer with flask webapp ui to show consumed messages
+
+```
+pip3 install flask 
+python3 deploy.py 
+# it will deploy consumer + webapp (ip:5000)
+```
