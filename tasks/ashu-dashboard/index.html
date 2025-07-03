@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>EC2 Instance Monitor</title>
+    <style>
+        body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
+        h2 { color: #222; }
+        h3 { margin-top: 40px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background: white;
+        }
+        th, td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+        .running { color: green; }
+        .stopped { color: orange; }
+        .terminated { color: red; }
+    </style>
+</head>
+<body>
+    <h2>📡 EC2 Real-Time Instance State Monitor</h2>
+
+    <h3>🟢 Running Instances (<span id="running-count">0</span>)</h3>
+    <table>
+        <thead><tr><th>Name</th><th>Instance ID</th><th>Last Updated</th></tr></thead>
+        <tbody id="running-body"></tbody>
+    </table>
+
+    <h3>🛑 Stopped Instances (<span id="stopped-count">0</span>)</h3>
+    <table>
+        <thead><tr><th>Name</th><th>Instance ID</th><th>Last Updated</th></tr></thead>
+        <tbody id="stopped-body"></tbody>
+    </table>
+
+    <h3>💣 Terminated Instances (<span id="terminated-count">0</span>)</h3>
+    <table>
+        <thead><tr><th>Name</th><th>Instance ID</th><th>Last Updated</th></tr></thead>
+        <tbody id="terminated-body"></tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
