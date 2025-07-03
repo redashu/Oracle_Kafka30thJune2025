@@ -101,3 +101,24 @@ mj-python-topic111
  kafka-topics.sh  --bootstrap-server  172.31.40.73:9092 --create --topic anitha-aws-oci-event --partitions 3 --replication-factor 2
 
 ```
+
+### checking with existing env 
+
+```
+oracle@ip-172-31-35-233 ~]$ ls
+Bakshu     anitha  arun  bala  dash              kafka_2.13-3.9.1.tgz  munyatam  py_env  suchi
+Shivanshu  arpit   ashu  crsk  kafka_2.13-3.9.1  man                   nalini    sathya
+[oracle@ip-172-31-35-233 ~]$ cd ashu/
+[oracle@ip-172-31-35-233 ashu]$ ls
+ashu-client  kafka-client.py  kafka-ui.yaml
+[oracle@ip-172-31-35-233 ashu]$ ls ashu-client/
+bin  include  lib  lib64  pyvenv.cfg
+[oracle@ip-172-31-35-233 ashu]$ 
+[oracle@ip-172-31-35-233 ashu]$ python3 -m venv  ashu-client ^C
+[oracle@ip-172-31-35-233 ashu]$ ls
+ashu-client  kafka-client.py  kafka-ui.yaml
+[oracle@ip-172-31-35-233 ashu]$ source ashu-client/bin/activate
+(ashu-client) [oracle@ip-172-31-35-233 ashu]$ pip install boto3 oci kafka-python 
+
+
+```
