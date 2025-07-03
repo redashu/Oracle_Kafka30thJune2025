@@ -34,9 +34,10 @@ with open(log_file_path, 'r') as file:
             if uri.startswith("/user"):
                 ip = match.group("ip")
                 msg = f"IP: {ip}, URI: {uri}"
-                print(f"Sending: {msg}")
+                print(f"Sending: {msg}") #
                 producer.send(topic_name, value=msg)
 
 # Cleanup (not reachable unless you wrap in try-finally or break loop)
 producer.flush()
 producer.close()
+
