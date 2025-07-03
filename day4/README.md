@@ -71,3 +71,8 @@ python3  finalproducer.py
 ```
 kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic web-logs  --from-beginning 
 ```
+
+### summary of small project i have created 
+
+<img src="project1.png">
+
