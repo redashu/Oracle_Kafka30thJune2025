@@ -136,3 +136,11 @@ uvicorn  aws-consumer:app  --host 0.0.0.0 --port 8081
 
 #note here aws-consumer is the name of python file 
 ```
+
+### running webapp 
+: change portnumber in script.js  (whatever you are using in uvicorn)
+### running app
+```
+cd ashu-webapp
+python3 -m http.server 9001  # change port 9000-10000
+```
