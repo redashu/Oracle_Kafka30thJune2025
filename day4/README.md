@@ -58,3 +58,16 @@ demotopic
 web-logs
 
 ```
+
+## to send logs to kafka topic
+
+```
+python3  finalproducer.py
+
+```
+
+### in second terminal 
+
+```
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic web-logs  --from-beginning 
+```
