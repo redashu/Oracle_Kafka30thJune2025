@@ -122,3 +122,17 @@ ashu-client  kafka-client.py  kafka-ui.yaml
 
 
 ```
+
+### Consumer read and webapi expose understandig 
+
+<img src="wp.png">
+
+### consumer python module installed 
+
+```
+
+pip install fastapi websockets uvicorn 
+uvicorn  aws-consumer:app  --host 0.0.0.0 --port 8081
+
+#note here aws-consumer is the name of python file 
+```
