@@ -97,5 +97,7 @@ bakshu-python-topic6
 mj-python-topic1
 mj-python-topic111
 
+===>
+ kafka-topics.sh  --bootstrap-server  172.31.40.73:9092 --create --topic anitha-aws-oci-event --partitions 3 --replication-factor 2
 
 ```
